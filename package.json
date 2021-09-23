@@ -1,9 +1,11 @@
 {
   "name": "gnparser",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Node.js bindings for GNParser, a scientific name parser",
   "main": "index.js",
   "author": "The Foundation for Extraordinary Plants",
+  "repository": "github:amazingplants/node-gnparser",
+  "homepage": "https://github.com/amazingplants/node-gnparser#readme",
   "license": "MIT",
   "dependencies": {
     "bindings": "^1.5.0",

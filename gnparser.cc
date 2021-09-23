@@ -17,8 +17,8 @@ char format[] = "compact";
 Napi::Value GNParseToString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
 
-  if (info.Length() < 1) {
-    Napi::TypeError::New(env, "Wrong number of arguments: 1 argument is required")
+  if (info.Length() < 3) {
+    Napi::TypeError::New(env, "Wrong number of arguments: 3 arguments are required")
         .ThrowAsJavaScriptException();
     return env.Null();
   }
@@ -28,10 +28,13 @@ Napi::Value GNParseToString(const Napi::CallbackInfo& info) {
     return env.Null();
   }
 
+  int details = info[1].As<Napi::Boolean>() ? 1 : 0;
+  int cultivars = info[2].As<Napi::Boolean>() ? 1 : 0;
+
   std::string str = info[0].ToString().Utf8Value();
   char* name = const_cast<char*>(str.c_str());
 
-  const char* res = ParseToString(name, format, 1, 1);
+  const char* res = ParseToString(name, format, details, cultivars);
   return Napi::String::New(env, res);
 
 }
@@ -39,8 +42,8 @@ Napi::Value GNParseToString(const Napi::CallbackInfo& info) {
 Napi::Value GNParseAryToString(const Napi::CallbackInfo& info) {
   Napi::Env env = info.Env();
 
-  if (info.Length() < 1) {
-    Napi::TypeError::New(env, "Wrong number of arguments: 1 argument is required")
+  if (info.Length() < 3) {
+    Napi::TypeError::New(env, "Wrong number of arguments: 3 arguments are required")
         .ThrowAsJavaScriptException();
     return env.Null();
   }
@@ -49,6 +52,9 @@ Napi::Value GNParseAryToString(const Napi::CallbackInfo& info) {
     Napi::TypeError::New(env, "Wrong arguments: an array is required").ThrowAsJavaScriptException();
     return env.Null();
   }
+
+  int details = info[1].As<Napi::Boolean>() ? 1 : 0;
+  int cultivars = info[2].As<Napi::Boolean>() ? 1 : 0;
 
   const Napi::Array nArr = info[0].As<Napi::Array>();
   char* names[nArr.Length()];
@@ -59,7 +65,7 @@ Napi::Value GNParseAryToString(const Napi::CallbackInfo& info) {
     names[i] = word;
   }
 
-  const char* res = ParseAryToString(names, nArr.Length(), format, 1, 1);
+  const char* res = ParseAryToString(names, nArr.Length(), format, details, cultivars);
 
   return Napi::String::New(env, res);
 }
