@@ -1,0 +1,13 @@
+{
+  "name": "gnparser",
+  "version": "1.4.0",
+  "description": "Node.js bindings for GNParser, a scientific name parser",
+  "main": "index.js",
+  "author": "The Foundation for Extraordinary Plants",
+  "license": "MIT",
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "node-addon-api": "^4.0.0"
+  },
+  "gypfile": true
+}
