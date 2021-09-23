@@ -12,10 +12,6 @@ function parse(names) {
   return JSON.parse(res)
 }
 
-const parsed = parse('Pardosa moesta Banks, 1892')
-
-console.log(parsed)
-
 module.exports = {
   parse
 }
