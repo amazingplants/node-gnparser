@@ -30,7 +30,7 @@ const name = "Pardosa moesta Banks, 1892"
 const parsed = gnparser.parse(name)
 ```
 
-`parsed` will be a JavaScript object derived from the JSON output of `gnparser`.
+`parsed` will be a JavaScript object derived from the JSON output of GNParser.
 
 You may also pass multiple names which will be parsed as a batch:
 
@@ -51,4 +51,4 @@ The cultivar name will be included in the normalized and canonical names, and th
 
 ## Versioning
 
-This module's major and minor version number matches that of the main GNParser Go project, but the patch version differs.
+This module's major and minor version number matches that of the [main GNParser Go project](https://github.com/gnames/gnparser), but the patch version differs.
