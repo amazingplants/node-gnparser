@@ -1,6 +1,6 @@
 {
   "name": "gnparser",
-  "version": "1.4.2",
+  "version": "1.5.3",
   "description": "Node.js bindings for GNParser, a scientific name parser",
   "main": "index.js",
   "author": "The Foundation for Extraordinary Plants",
