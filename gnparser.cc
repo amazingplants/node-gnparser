@@ -30,11 +30,12 @@ Napi::Value GNParseToString(const Napi::CallbackInfo& info) {
 
   int details = info[1].As<Napi::Boolean>() ? 1 : 0;
   int cultivars = info[2].As<Napi::Boolean>() ? 1 : 0;
+  int diaereses = info[3].As<Napi::Boolean>() ? 1 : 0;
 
   std::string str = info[0].ToString().Utf8Value();
   char* name = const_cast<char*>(str.c_str());
 
-  const char* res = ParseToString(name, format, details, cultivars);
+  const char* res = ParseToString(name, format, details, cultivars, diaereses);
   return Napi::String::New(env, res);
 
 }
@@ -55,6 +56,7 @@ Napi::Value GNParseAryToString(const Napi::CallbackInfo& info) {
 
   int details = info[1].As<Napi::Boolean>() ? 1 : 0;
   int cultivars = info[2].As<Napi::Boolean>() ? 1 : 0;
+  int diaereses = info[3].As<Napi::Boolean>() ? 1 : 0;
 
   const Napi::Array nArr = info[0].As<Napi::Array>();
   char* names[nArr.Length()];
@@ -65,7 +67,7 @@ Napi::Value GNParseAryToString(const Napi::CallbackInfo& info) {
     names[i] = word;
   }
 
-  const char* res = ParseAryToString(names, nArr.Length(), format, details, cultivars);
+  const char* res = ParseAryToString(names, nArr.Length(), format, details, cultivars, diaereses);
 
   return Napi::String::New(env, res);
 }

@@ -20,6 +20,7 @@ The module currently supports MacOS (ARM64 only) and Linux.
 * **options** is an optional object with either or both of these keys:
   * **`details`**: *boolean* - include additional details (e.g. the individual parsed words of the name). Default is `false`.
   * **`cultivars`**: *boolean* - include cultivars in the normalized and canonical names. Default is `false`, which will add a quality warning if a cultivar is present.
+  * **`diaereses`**: *boolean* - preserve diaereses (e.g. `Leptochloöpsis virgata`) in normalized and canonical names (but not stemmed canonical names). Default is `false`: diaereses will be transliterated to their ASCII counterparts, e.g. `Leptochlooepsis virgata`.
 
 
 For example:
