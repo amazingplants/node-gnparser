@@ -21,7 +21,7 @@ typedef struct { const char *p; ptrdiff_t n; } _GoString_;
 
 #line 5 "main.go"
 
-	#include "stdlib.h"
+  #include "stdlib.h"
 
 #line 1 "cgo-generated-wrapper"
 
@@ -80,7 +80,7 @@ extern "C" {
 // 'csv', 'compact', 'pretty'. If withDetails argument is 0, additional
 // parsed details are ommited, if it is 1 -- they are included.
 // true.
-extern char* ParseToString(char* name, char* f, int details, int cultivars);
+extern char* ParseToString(char* name, char* f, int details, int cultivars, int diaereses);
 
 // FreeMemory takes a string pointer and frees its memory.
 extern void FreeMemory(char* p);
@@ -90,7 +90,7 @@ extern void FreeMemory(char* p);
 // either CSV or JSON format.  Format argument can take values of 'csv',
 // 'compact', or 'pretty'. For withDetails argument 0 means false, 1 means
 // true.
-extern char* ParseAryToString(char** in, int length, char* f, int details, int cultivars);
+extern char* ParseAryToString(char** in, int length, char* f, int details, int cultivars, int diaereses);
 
 #ifdef __cplusplus
 }
